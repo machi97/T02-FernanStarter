@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Main {
+public class fernanStarter {
     public static void main(String[] args) {
         Scanner SC = new Scanner(System.in);
 
@@ -22,14 +22,29 @@ public class Main {
         String descripcion1 = "", descripcion2 = "", descripcion3 = "";
         String categoria1 = "", categoria2 = "", categoria3 = "";
         double cantidadNec1 = 0, cantidadNec2 = 0, cantidadNec3 = 0;
+        double cantidadInvertida1 = 0, cantidadInvertida2 = 0, cantidadInvertida3 = 0;
         double cantidadFinanc1 = 0, cantidadFinanc2 = 0, cantidadFinanc3 = 0;
         String fechaInicio1 = "", fechaInicio2 = "", fechaInicio3 = "";
         String fechaFin1 = "", fechaFin2 = "", fechaFin3 = "";
+
+        String recompensa1P1 = "", recompensa2P1 = "", recompensa3P1 = "";
+        String recompensa1P2 = "", recompensa2P2 = "", recompensa3P2 = "";
+        String recompensa1P3 = "", recompensa2P3 = "", recompensa3P3 = "";
+        String recompensaDesc1P1 = "", recompensaDesc2P1 = "",recompensaDesc3P1 = "";
+        String recompensaDesc1P2 = "", recompensaDesc2P2 = "",recompensaDesc3P2 = "";
+        String recompensaDesc1P3 = "", recompensaDesc2P3 = "",recompensaDesc3P3 = "";
+        double precioRecompensa1P1 = 0, precioRecompensa2P1 = 0, precioRecompensa3P1 = 0;
+        double precioRecompensa1P2 = 0, precioRecompensa2P2 = 0, precioRecompensa3P2 = 0;
+        double precioRecompensa1P3 = 0, precioRecompensa2P3 = 0, precioRecompensa3P3 = 0;
+
 
         int numProyectos = 0;
 
         String invitaAmigo1 = "";
         String invitaAmigo2 = "";
+
+        double saldoCartera1 = 0.0;
+        double saldoCartera2 = 0.0;
 
         while (!salir) {
             System.out.println("\n=== SISTEMA DE LOGIN ===");
@@ -273,8 +288,54 @@ public class Main {
                                             System.out.println("Fecha fin de cierre de las inversiones ");
                                             String fechaCierre = SC.nextLine();
 
+                                            String recompensa1 = "", descripcionR1 = "";
+                                            double precioR1 = 0;
+
+                                            System.out.println("Introduce el nombre de la recompensa 1: ");
+                                            recompensa1 = SC.nextLine();
+
+                                            if (!recompensa1.equals("")){
+                                                System.out.println("Descripción de la recompensa 1: ");
+                                                descripcionR1 = SC.nextLine();
+
+                                                System.out.println("Precio de la recompensa 1: ");
+                                                precioR1 = SC.nextDouble();
+                                                SC.nextLine();
+                                            }
+
+                                            String recompensa2 = "", descripcionR2 = "";
+                                            double precioR2 = 0;
+
+                                            System.out.println("Introduce el nombre de la recompensa 2: ");
+                                            recompensa2 = SC.nextLine();
+
+                                            if (!recompensa2.equals("")){
+                                                System.out.println("Descripción de la recompensa 2: ");
+                                                descripcionR2 = SC.nextLine();
+
+                                                System.out.println("Precio de la recompensa 2: ");
+                                                precioR2 = SC.nextDouble();
+                                                SC.nextLine();
+                                            }
+
+                                            String recompensa3 = "", descripcionR3 = "";
+                                            double precioR3 = 0;
+
+                                            System.out.println("Introduce el nombre de la recompensa 1: ");
+                                            recompensa3 = SC.nextLine();
+
+                                            if (!recompensa3.equals("")){
+                                                System.out.println("Descripción de la recompensa 1: ");
+                                                descripcionR3 = SC.nextLine();
+
+                                                System.out.println("Precio de la recompensa 1: ");
+                                                precioR3 = SC.nextDouble();
+                                                SC.nextLine();
+                                            }
+
                                             //Creacion del proyecto
                                             if (numProyectos == 0) {
+
                                                 proyecto1 = "Nombre: " + nombre + ", Descripción: " + descripcion + ", Categoria: " + categoria + ", Cantidad necesaria: " + cantidadNec + ", Cantidad hasta el momento: " + cantidadHastaMom + ", Fecha de inicio: " + fechaInicio + ", Fecha de inicio: " + fechaCierre;
                                                 nombre1 = nombre;
                                                 descripcion1 = descripcion;
@@ -283,6 +344,17 @@ public class Main {
                                                 cantidadFinanc1 = cantidadHastaMom;
                                                 fechaInicio1 = fechaInicio;
                                                 fechaFin1 = fechaCierre;
+
+                                                recompensa1P1 = recompensa1;
+                                                recompensa2P1 = recompensa2;
+                                                recompensa3P1 = recompensa3;
+                                                recompensaDesc1P1 = descripcionR1;
+                                                recompensaDesc2P1 = descripcionR2;
+                                                recompensaDesc3P1 = descripcionR3;
+                                                precioRecompensa1P1 = precioR1;
+                                                precioRecompensa2P1 = precioR1;
+                                                precioRecompensa3P1 = precioR1;
+
 
                                             } else if (numProyectos == 1) {
                                                 proyecto2 = "Nombre: " + nombre + ", Descripción: " + descripcion + ", Categoria: " + categoria + ", Cantidad necesaria: " + cantidadNec + ", Cantidad hasta el momento: " + cantidadHastaMom + ", Fecha de inicio: " + fechaInicio + ", Fecha de inicio: " + fechaCierre;
@@ -293,6 +365,17 @@ public class Main {
                                                 cantidadFinanc2 = cantidadHastaMom;
                                                 fechaInicio2 = fechaInicio;
                                                 fechaFin2 = fechaCierre;
+
+                                                recompensa1P2 = recompensa1;
+                                                recompensa2P2 = recompensa2;
+                                                recompensa3P2 = recompensa3;
+                                                recompensaDesc1P2 = descripcionR1;
+                                                recompensaDesc2P2 = descripcionR2;
+                                                recompensaDesc3P2 = descripcionR3;
+                                                precioRecompensa1P2 = precioR1;
+                                                precioRecompensa2P2 = precioR2;
+                                                precioRecompensa3P2 = precioR3;
+
                                             } else if (numProyectos == 2) {
                                                 proyecto3 = "Nombre: " + nombre + ", Descripción: " + descripcion + ", Categoria: " + categoria + ", Cantidad necesaria: " + cantidadNec + ", Cantidad hasta el momento: " + cantidadHastaMom + ", Fecha de inicio: " + fechaInicio + ", Fecha de inicio: " + fechaCierre;
                                                 nombre3 = nombre;
@@ -302,9 +385,60 @@ public class Main {
                                                 cantidadFinanc3 = cantidadHastaMom;
                                                 fechaInicio3 = fechaInicio;
                                                 fechaFin3 = fechaCierre;
+
+                                                recompensa1P3 = recompensa1;
+                                                recompensa2P3 = recompensa2;
+                                                recompensa3P3 = recompensa3;
+                                                recompensaDesc1P3 = descripcionR1;
+                                                recompensaDesc2P3 = descripcionR2;
+                                                recompensaDesc3P3 = descripcionR3;
+                                                precioRecompensa1P3 = precioR1;
+                                                precioRecompensa2P3 = precioR1;
+                                                precioRecompensa3P3 = precioR1;
+
                                             }
                                             numProyectos++;
                                             System.out.println("Poyecto creado con éxito");
+
+                                            System.out.println("Detalles de las recompensas: ");
+                                            if (numProyectos == 1){
+                                                System.out.println(proyecto1);
+                                                System.out.println("Recompensas");
+                                                if (!recompensa1P1.equals("")){
+                                                    System.out.println("Recompensa 1: " + recompensa1P1 + "Descripción " + recompensaDesc1P1 + "Precio " + precioRecompensa1P1);
+                                                }
+                                                if (!recompensa2P1.equals("")){
+                                                    System.out.println("Recompensa 2: " + recompensa2P1 + "Descripción " + recompensaDesc2P1 + "Precio " + precioRecompensa2P1);
+                                                }
+                                                if (!recompensa3P1.equals("")){
+                                                    System.out.println("Recompensa 3: " + recompensa3P1 + "Descripción " + recompensaDesc3P1 + "Precio " + precioRecompensa3P1);
+                                                }
+                                            }else if (numProyectos == 2){
+                                                System.out.println(proyecto2);
+                                                System.out.println("Recompensas");
+                                                if (!recompensa1P2.equals("")){
+                                                    System.out.println("Recompensa 1: " + recompensa1P2 + "Descripción " + recompensaDesc1P2 + "Precio " + precioRecompensa1P2);
+                                                }
+                                                if (!recompensa2P2.equals("")){
+                                                    System.out.println("Recompensa 2: " + recompensa2P2 + "Descripción " + recompensaDesc2P2 + "Precio " + precioRecompensa2P2);
+                                                }
+                                                if (!recompensa3P2.equals("")){
+                                                    System.out.println("Recompensa 3: " + recompensa3P2 + "Descripción " + recompensaDesc3P2 + "Precio " + precioRecompensa3P2);
+                                                }
+                                            }else if (numProyectos == 3){
+                                                System.out.println(proyecto1);
+                                                System.out.println("Recompensas");
+                                                if (!recompensa1P3.equals("")){
+                                                    System.out.println("Recompensa 1: " + recompensa1P3 + "Descripción " + recompensaDesc1P3 + "Precio " + precioRecompensa1P3);
+                                                }
+                                                if (!recompensa2P3.equals("")){
+                                                    System.out.println("Recompensa 2: " + recompensa2P3 + "Descripción " + recompensaDesc2P3 + "Precio " + precioRecompensa2P3);
+                                                }
+                                                if (!recompensa2P3.equals("")){
+                                                    System.out.println("Recompensa 3: " + recompensa3P3 + "Descripción " + recompensaDesc3P3 + "Precio " + precioRecompensa3P3);
+                                                }
+                                            }
+
                                         } else {
                                             System.out.println("Error. Solo se puede crear 3 proyectos");
                                         }
@@ -507,20 +641,83 @@ public class Main {
                                 switch (opcionInversor1) {
                                     case 1:
                                         System.out.println("Mis inversiones: ");
+
+                                        boolean hayInversiones = false;
+
+                                        if (cantidadInvertida1 > 0) {
+                                            System.out.println("1. " + nombre1 + " | Categoria: " + categoria1 + " | Necesaria:" + cantidadNec1 + " | Financiada: " + cantidadFinanc1);
+                                        hayInversiones = true;
+                                        }
+                                        if (cantidadInvertida2 > 0){
+                                            System.out.println("2. " + nombre2 + " | Categoria: " + categoria2 + " | Necesaria:" + cantidadNec2 + " | Financiada: " + cantidadFinanc2);
+                                        hayInversiones = true;
+                                        }
+                                        if (cantidadInvertida3 > 0){
+                                            System.out.println("3. " + nombre3 + " | Categoria: " + categoria3 + " | Necesaria:" + cantidadNec3 + " | Financiada: " + cantidadFinanc3);
+                                        hayInversiones = true;
+                                        }
+
+                                        if (!hayInversiones){
+                                            System.out.println("No has realizado ninguna inversion");
+                                        }else {
+                                            System.out.println("Selecciona el proyecto que quieres ver en detalle (0 para volver): ");
+                                            int seleccionInv = SC.nextInt();
+                                            SC.nextLine();
+
+                                            if (seleccionInv == 1 && cantidadInvertida1 < 0) {
+                                                System.out.println("Detalle del proyecto 1: ");
+                                                System.out.println("Nombre: " + nombre1);
+                                                System.out.println("Descripción: " + descripcion1);
+                                                System.out.println("Categoría: " + categoria1);
+                                                System.out.println("Cantidad necesaria: " + cantidadNec1);
+                                                System.out.println("Cantidad financiada: " + cantidadFinanc1);
+                                                System.out.println("Fecha inicio: " + fechaInicio1);
+                                                System.out.println("Fecha fin: " + fechaFin1);
+                                            } else if (seleccionInv == 2 && cantidadInvertida2 < 0) {
+                                                System.out.println("Detalle del proyecto 2: ");
+                                                System.out.println("Nombre: " + nombre2);
+                                                System.out.println("Descripción: " + descripcion2);
+                                                System.out.println("Categoría: " + categoria2);
+                                                System.out.println("Cantidad necesaria: " + cantidadNec2);
+                                                System.out.println("Cantidad financiada: " + cantidadFinanc2);
+                                                System.out.println("Fecha inicio: " + fechaInicio2);
+                                                System.out.println("Fecha fin: " + fechaFin2);
+                                            } else if (seleccionInv == 3 && cantidadInvertida3 < 0) {
+                                                System.out.println("Detalle del proyecto 3: ");
+                                                System.out.println("Nombre: " + nombre3);
+                                                System.out.println("Descripción: " + descripcion3);
+                                                System.out.println("Categoría: " + categoria3);
+                                                System.out.println("Cantidad necesaria: " + cantidadNec3);
+                                                System.out.println("Cantidad financiada: " + cantidadFinanc3);
+                                                System.out.println("Fecha inicio: " + fechaInicio3);
+                                                System.out.println("Fecha fin: " + fechaFin3);
+                                            }
+                                        }
                                         break;
                                     case 2:
-                                        if (numProyectos == 0) {
-                                            System.out.println("No hay proyectos creados.");
-                                        } else {
-                                            System.out.println("\n/////PROYECTOS CREADOS/////");
-                                            if (!proyecto1.equals(""))
-                                                System.out.println("Proyecto 1: " + proyecto1);
-                                            if (!proyecto2.equals(""))
-                                                System.out.println("Proyecto 2: " + proyecto2);
-                                            if (!proyecto3.equals(""))
-                                                System.out.println("Proyecto 3: " + proyecto3);
+                                        System.out.println("Proyectos disponibles: ");
 
-                                            System.out.println("Selecciona el proyecto que quieres ver en detalle 1-3: ");
+                                        boolean hayProyectos = false;
+
+                                        if (cantidadNec1 > 0){
+                                            System.out.println("1. " + nombre1 + " | Categoria: " + categoria1 + " | Necesaria:" + cantidadNec1 + " | Financiada: " + cantidadFinanc1);
+                                        hayProyectos = true;
+                                        }
+                                        if (cantidadNec2 > 0){
+                                            System.out.println("2. " + nombre2 + " | Categoria: " + categoria2 + " | Necesaria:" + cantidadNec2 + " | Financiada: " + cantidadFinanc2);
+                                            hayProyectos = true;
+                                        }
+                                        if (cantidadNec3 > 0){
+                                            System.out.println("3. " + nombre3 + " | Categoria: " + categoria3 + " | Necesaria:" + cantidadNec3 + " | Financiada: " + cantidadFinanc3);
+                                            hayProyectos = true;
+
+                                        }
+
+                                        if (!hayProyectos){
+                                            System.out.println("No hay proyectos disponibles.");
+                                        }else {
+
+                                            System.out.println("Selecciona el proyecto que quieres ver en detalle (0 para volver): ");
                                             int seleccion = SC.nextInt();
                                             SC.nextLine();
 
@@ -534,24 +731,21 @@ public class Main {
                                                 System.out.println("Fecha inicio: " + fechaInicio1);
                                                 System.out.println("Fecha fin: " + fechaFin1);
 
-                                                System.out.println("¿Quieres modificar el proyecto 1?");
+                                                System.out.println("¿Deseas invertir en este proyecto? (si/no)");
                                                 String respuesta = SC.nextLine();
-                                                if (respuesta.equalsIgnoreCase("S")) {
-                                                    System.out.println("Introduce el nuevo nombre del proyecto 1: ");
-                                                    nombre1 = SC.nextLine();
-                                                    System.out.println("Introduce la nueva descripción del proyecto 1: ");
-                                                    descripcion1 = SC.nextLine();
-                                                    System.out.println("Introduce la nueva categoria del proyecto 1: ");
-                                                    categoria1 = SC.nextLine();
-                                                    System.out.println("Introduce la nueva cantidad necesaria del proyecto 1: ");
-                                                    cantidadNec1 = SC.nextDouble();
-                                                    System.out.println("Introduce la nueva cantidad financiada del proyecto 1: ");
-                                                    cantidadFinanc1 = SC.nextDouble();
-                                                    System.out.println("Introduce la nueva fecha de inicio del proyecto 1: ");
-                                                    fechaInicio1 = SC.nextLine();
-                                                    System.out.println("Introduce la nueva fecha fin del proyecto 1: ");
-                                                    fechaFin1 = SC.nextLine();
+                                                if (respuesta.equalsIgnoreCase("Si")) {
+                                                    System.out.println("Cuanto deseas invertir");
+                                                    double cantidad1 = SC.nextDouble();
+                                                    if (cantidad1 <= saldoCartera1 && cantidad1 + cantidadFinanc1 <= cantidadNec1) {
+                                                        saldoCartera1 -= cantidad1;
+                                                        cantidadFinanc1 += cantidad1;
+                                                        cantidadInvertida1 += cantidad1;
+                                                        System.out.println("Inversión realizada");
+                                                    } else {
+                                                        System.out.println("No tienes suficiente saldo o el proyecto ya esta financidado");
+                                                    }
                                                 }
+
                                             } else if (seleccion == 2) {
                                                 System.out.println("Detalle del proyecto 1: ");
                                                 System.out.println("Nombre: " + nombre2);
@@ -562,23 +756,19 @@ public class Main {
                                                 System.out.println("Fecha inicio: " + fechaInicio2);
                                                 System.out.println("Fecha fin: " + fechaFin2);
 
-                                                System.out.println("¿Quieres modificar el proyecto 2?");
+                                                System.out.println("¿Deseas invertir en este proyecto? (si/no)");
                                                 String respuesta = SC.nextLine();
-                                                if (respuesta.equalsIgnoreCase("S")) {
-                                                    System.out.println("Introduce el nuevo nombre del proyecto 2: ");
-                                                    nombre2 = SC.nextLine();
-                                                    System.out.println("Introduce la nueva descripción del proyecto 2: ");
-                                                    descripcion2 = SC.nextLine();
-                                                    System.out.println("Introduce la nueva categoria del proyecto 2: ");
-                                                    categoria2 = SC.nextLine();
-                                                    System.out.println("Introduce la nueva cantidad necesaria del proyecto 2: ");
-                                                    cantidadNec2 = SC.nextDouble();
-                                                    System.out.println("Introduce la nueva cantidad financiada del proyecto 2: ");
-                                                    cantidadFinanc2 = SC.nextDouble();
-                                                    System.out.println("Introduce la nueva fecha de inicio del proyecto 2: ");
-                                                    fechaInicio2 = SC.nextLine();
-                                                    System.out.println("Introduce la nueva fecha fin del proyecto 2: ");
-                                                    fechaFin2 = SC.nextLine();
+                                                if (respuesta.equalsIgnoreCase("Si")) {
+                                                    System.out.println("Cuanto deseas invertir");
+                                                    double cantidad1 = SC.nextDouble();
+                                                    if (cantidad1 <= saldoCartera1 && cantidad1 + cantidadFinanc2 <= cantidadNec2) {
+                                                        saldoCartera1 -= cantidad1;
+                                                        cantidadFinanc2 += cantidad1;
+                                                        cantidadInvertida2 += cantidad1;
+                                                        System.out.println("Inversión realizada");
+                                                    } else {
+                                                        System.out.println("No tienes suficiente saldo o el proyecto ya esta financidado");
+                                                    }
                                                 }
 
                                             } else if (seleccion == 3) {
@@ -591,29 +781,64 @@ public class Main {
                                                 System.out.println("Fecha inicio: " + fechaInicio3);
                                                 System.out.println("Fecha fin: " + fechaFin3);
 
-                                                System.out.println("¿Quieres modificar el proyecto 3?");
+                                                System.out.println("¿Deseas invertir en este proyecto? (si/no)");
                                                 String respuesta = SC.nextLine();
-                                                if (respuesta.equalsIgnoreCase("S")) {
-                                                    System.out.println("Introduce el nuevo nombre del proyecto 3: ");
-                                                    nombre3 = SC.nextLine();
-                                                    System.out.println("Introduce la nueva descripción del proyecto 3: ");
-                                                    descripcion3 = SC.nextLine();
-                                                    System.out.println("Introduce la nueva categoria del proyecto 3: ");
-                                                    categoria3 = SC.nextLine();
-                                                    System.out.println("Introduce la nueva cantidad necesaria del proyecto 3: ");
-                                                    cantidadNec3 = SC.nextDouble();
-                                                    System.out.println("Introduce la nueva cantidad financiada del proyecto 3: ");
-                                                    cantidadFinanc3 = SC.nextDouble();
-                                                    System.out.println("Introduce la nueva fecha de inicio del proyecto 3: ");
-                                                    fechaInicio3 = SC.nextLine();
-                                                    System.out.println("Introduce la nueva fecha fin del proyecto 3: ");
-                                                    fechaFin3 = SC.nextLine();
+                                                if (respuesta.equalsIgnoreCase("Si")) {
+                                                    System.out.println("Cuanto deseas invertir");
+                                                    double cantidad1 = SC.nextDouble();
+                                                    if (cantidad1 <= saldoCartera1 && cantidad1 + cantidadFinanc3 <= cantidadNec3) {
+                                                        saldoCartera1 -= cantidad1;
+                                                        cantidadFinanc3 += cantidad1;
+                                                        cantidadInvertida3 += cantidad1;
+                                                        System.out.println("Inversión realizada");
+                                                    } else {
+                                                        System.out.println("No tienes suficiente saldo o el proyecto ya esta financidado");
+                                                    }
                                                 }
                                             }
                                         }
                                         break;
                                     case 3:
                                         System.out.println("===CARTERA DIGITAL===");
+                                        boolean salirCartera = false;
+
+                                        while (!salirCartera){
+                                            System.out.println("1. Ver saldo");
+                                            System.out.println("2. Añadir saldo");
+                                            System.out.println("3. Salir");
+
+                                            int opcionCD = SC.nextInt();
+                                            SC.nextLine();
+
+                                            switch (opcionCD){
+                                                case 1:
+                                                    System.out.println("Saldo actual: " + saldoCartera1);
+                                                    System.out.println();
+                                                    break;
+                                                case 2:
+                                                    System.out.println("Introduce la cantidad de dinero que quieres introducir en la cartera digital: ");
+                                                    double cantidadDinero = SC.nextDouble();
+
+
+                                                    if (cantidadDinero > 0){
+                                                        saldoCartera1 += cantidadDinero;
+                                                        System.out.println("Has añadido " + cantidadDinero + "a tu cartera digital.");
+                                                        System.out.println("Tu nuevo saldo es de: " + saldoCartera1);
+                                                    }else{
+                                                        System.out.println("Debes de introducir un valor mayor que 0.");
+                                                    }
+                                                    break;
+
+                                                case 3:
+                                                    salirCartera = true;
+                                                    System.out.println("Volviendo al menú principal...");
+                                                    break;
+
+                                                default:
+                                                    System.out.println("Opción no válida. ");
+                                                    break;
+                                            }
+                                        }
                                         break;
                                     case 4:
                                         System.out.println("===INVITA A TUS AMIGOS===");
@@ -663,12 +888,12 @@ public class Main {
                                 }
                             }
                         } else {
-                            intentosGestor++;
+                            intentosInversor1++;
                             System.out.println("Contraseña incorrecta. Intentos restantes: " + (3 - intentosGestor));
                         }
 
                     } else {
-                        gestorBloqueado = true;
+                        inversor1Bloqueado = true;
                         System.out.println("Has superado el limite de intentos. La cuenta está bloqueada");
                     }
                 }
@@ -676,7 +901,7 @@ public class Main {
 
                             // Inversor2
             } else if (usuario.equals(usuarioInversor2)) {
-                if (inversor1Bloqueado){
+                if (inversor2Bloqueado){
                     System.out.println("El usuario inversor está bloqueado. Contacta al administrador.");
                 }else{
                     if (intentosInversor2 < 3){
@@ -701,20 +926,83 @@ public class Main {
                                 switch (opcionInversor2) {
                                     case 1:
                                         System.out.println("Mis inversiones: ");
+
+                                        boolean hayInversiones = false;
+
+                                        if (cantidadInvertida1 > 0) {
+                                            System.out.println("1. " + nombre1 + " | Categoria: " + categoria1 + " | Necesaria:" + cantidadNec1 + " | Financiada: " + cantidadFinanc1);
+                                            hayInversiones = true;
+                                        }
+                                        if (cantidadInvertida2 > 0){
+                                            System.out.println("2. " + nombre2 + " | Categoria: " + categoria2 + " | Necesaria:" + cantidadNec2 + " | Financiada: " + cantidadFinanc2);
+                                            hayInversiones = true;
+                                        }
+                                        if (cantidadInvertida3 > 0){
+                                            System.out.println("3. " + nombre3 + " | Categoria: " + categoria3 + " | Necesaria:" + cantidadNec3 + " | Financiada: " + cantidadFinanc3);
+                                            hayInversiones = true;
+                                        }
+
+                                        if (!hayInversiones){
+                                            System.out.println("No has realizado ninguna inversion");
+                                        }else {
+                                            System.out.println("Selecciona el proyecto que quieres ver en detalle (0 para volver): ");
+                                            int seleccionInv = SC.nextInt();
+                                            SC.nextLine();
+
+                                            if (seleccionInv == 1 && cantidadInvertida1 < 0) {
+                                                System.out.println("Detalle del proyecto 1: ");
+                                                System.out.println("Nombre: " + nombre1);
+                                                System.out.println("Descripción: " + descripcion1);
+                                                System.out.println("Categoría: " + categoria1);
+                                                System.out.println("Cantidad necesaria: " + cantidadNec1);
+                                                System.out.println("Cantidad financiada: " + cantidadFinanc1);
+                                                System.out.println("Fecha inicio: " + fechaInicio1);
+                                                System.out.println("Fecha fin: " + fechaFin1);
+                                            } else if (seleccionInv == 2 && cantidadInvertida2 < 0) {
+                                                System.out.println("Detalle del proyecto 2: ");
+                                                System.out.println("Nombre: " + nombre2);
+                                                System.out.println("Descripción: " + descripcion2);
+                                                System.out.println("Categoría: " + categoria2);
+                                                System.out.println("Cantidad necesaria: " + cantidadNec2);
+                                                System.out.println("Cantidad financiada: " + cantidadFinanc2);
+                                                System.out.println("Fecha inicio: " + fechaInicio2);
+                                                System.out.println("Fecha fin: " + fechaFin2);
+                                            } else if (seleccionInv == 3 && cantidadInvertida3 < 0) {
+                                                System.out.println("Detalle del proyecto 3: ");
+                                                System.out.println("Nombre: " + nombre3);
+                                                System.out.println("Descripción: " + descripcion3);
+                                                System.out.println("Categoría: " + categoria3);
+                                                System.out.println("Cantidad necesaria: " + cantidadNec3);
+                                                System.out.println("Cantidad financiada: " + cantidadFinanc3);
+                                                System.out.println("Fecha inicio: " + fechaInicio3);
+                                                System.out.println("Fecha fin: " + fechaFin3);
+                                            }
+                                        }
                                         break;
                                     case 2:
-                                        if (numProyectos == 0) {
-                                            System.out.println("No hay proyectos creados.");
-                                        } else {
-                                            System.out.println("\n/////PROYECTOS CREADOS/////");
-                                            if (!proyecto1.equals(""))
-                                                System.out.println("Proyecto 1: " + proyecto1);
-                                            if (!proyecto2.equals(""))
-                                                System.out.println("Proyecto 2: " + proyecto2);
-                                            if (!proyecto3.equals(""))
-                                                System.out.println("Proyecto 3: " + proyecto3);
+                                        System.out.println("Proyectos disponibles: ");
 
-                                            System.out.println("Selecciona el proyecto que quieres ver en detalle 1-3: ");
+                                        boolean hayProyectos = false;
+
+                                        if (cantidadNec1 > 0){
+                                            System.out.println("1. " + nombre1 + " | Categoria: " + categoria1 + " | Necesaria:" + cantidadNec1 + " | Financiada: " + cantidadFinanc1);
+                                            hayProyectos = true;
+                                        }
+                                        if (cantidadNec2 > 0){
+                                            System.out.println("2. " + nombre2 + " | Categoria: " + categoria2 + " | Necesaria:" + cantidadNec2 + " | Financiada: " + cantidadFinanc2);
+                                            hayProyectos = true;
+                                        }
+                                        if (cantidadNec3 > 0){
+                                            System.out.println("3. " + nombre3 + " | Categoria: " + categoria3 + " | Necesaria:" + cantidadNec3 + " | Financiada: " + cantidadFinanc3);
+                                            hayProyectos = true;
+
+                                        }
+
+                                        if (!hayProyectos){
+                                            System.out.println("No hay proyectos disponibles.");
+                                        }else {
+
+                                            System.out.println("Selecciona el proyecto que quieres ver en detalle (0 para volver): ");
                                             int seleccion = SC.nextInt();
                                             SC.nextLine();
 
@@ -728,24 +1016,21 @@ public class Main {
                                                 System.out.println("Fecha inicio: " + fechaInicio1);
                                                 System.out.println("Fecha fin: " + fechaFin1);
 
-                                                System.out.println("¿Quieres modificar el proyecto 1?");
+                                                System.out.println("¿Deseas invertir en este proyecto? (si/no)");
                                                 String respuesta = SC.nextLine();
-                                                if (respuesta.equalsIgnoreCase("S")) {
-                                                    System.out.println("Introduce el nuevo nombre del proyecto 1: ");
-                                                    nombre1 = SC.nextLine();
-                                                    System.out.println("Introduce la nueva descripción del proyecto 1: ");
-                                                    descripcion1 = SC.nextLine();
-                                                    System.out.println("Introduce la nueva categoria del proyecto 1: ");
-                                                    categoria1 = SC.nextLine();
-                                                    System.out.println("Introduce la nueva cantidad necesaria del proyecto 1: ");
-                                                    cantidadNec1 = SC.nextDouble();
-                                                    System.out.println("Introduce la nueva cantidad financiada del proyecto 1: ");
-                                                    cantidadFinanc1 = SC.nextDouble();
-                                                    System.out.println("Introduce la nueva fecha de inicio del proyecto 1: ");
-                                                    fechaInicio1 = SC.nextLine();
-                                                    System.out.println("Introduce la nueva fecha fin del proyecto 1: ");
-                                                    fechaFin1 = SC.nextLine();
+                                                if (respuesta.equalsIgnoreCase("Si")) {
+                                                    System.out.println("Cuanto deseas invertir");
+                                                    double cantidad2 = SC.nextDouble();
+                                                    if (cantidad2 <= saldoCartera1 && cantidad2 + cantidadFinanc1 <= cantidadNec1) {
+                                                        saldoCartera2 -= cantidad2;
+                                                        cantidadFinanc1 += cantidad2;
+                                                        cantidadInvertida1 += cantidad2;
+                                                        System.out.println("Inversión realizada");
+                                                    } else {
+                                                        System.out.println("No tienes suficiente saldo o el proyecto ya esta financidado");
+                                                    }
                                                 }
+
                                             } else if (seleccion == 2) {
                                                 System.out.println("Detalle del proyecto 1: ");
                                                 System.out.println("Nombre: " + nombre2);
@@ -756,23 +1041,19 @@ public class Main {
                                                 System.out.println("Fecha inicio: " + fechaInicio2);
                                                 System.out.println("Fecha fin: " + fechaFin2);
 
-                                                System.out.println("¿Quieres modificar el proyecto 2?");
+                                                System.out.println("¿Deseas invertir en este proyecto? (si/no)");
                                                 String respuesta = SC.nextLine();
-                                                if (respuesta.equalsIgnoreCase("S")) {
-                                                    System.out.println("Introduce el nuevo nombre del proyecto 2: ");
-                                                    nombre2 = SC.nextLine();
-                                                    System.out.println("Introduce la nueva descripción del proyecto 2: ");
-                                                    descripcion2 = SC.nextLine();
-                                                    System.out.println("Introduce la nueva categoria del proyecto 2: ");
-                                                    categoria2 = SC.nextLine();
-                                                    System.out.println("Introduce la nueva cantidad necesaria del proyecto 2: ");
-                                                    cantidadNec2 = SC.nextDouble();
-                                                    System.out.println("Introduce la nueva cantidad financiada del proyecto 2: ");
-                                                    cantidadFinanc2 = SC.nextDouble();
-                                                    System.out.println("Introduce la nueva fecha de inicio del proyecto 2: ");
-                                                    fechaInicio2 = SC.nextLine();
-                                                    System.out.println("Introduce la nueva fecha fin del proyecto 2: ");
-                                                    fechaFin2 = SC.nextLine();
+                                                if (respuesta.equalsIgnoreCase("Si")) {
+                                                    System.out.println("Cuanto deseas invertir");
+                                                    double cantidad1 = SC.nextDouble();
+                                                    if (cantidad1 <= saldoCartera1 && cantidad1 + cantidadFinanc2 <= cantidadNec2) {
+                                                        saldoCartera1 -= cantidad1;
+                                                        cantidadFinanc2 += cantidad1;
+                                                        cantidadInvertida2 += cantidad1;
+                                                        System.out.println("Inversión realizada");
+                                                    } else {
+                                                        System.out.println("No tienes suficiente saldo o el proyecto ya esta financidado");
+                                                    }
                                                 }
 
                                             } else if (seleccion == 3) {
@@ -785,29 +1066,64 @@ public class Main {
                                                 System.out.println("Fecha inicio: " + fechaInicio3);
                                                 System.out.println("Fecha fin: " + fechaFin3);
 
-                                                System.out.println("¿Quieres modificar el proyecto 3?");
+                                                System.out.println("¿Deseas invertir en este proyecto? (si/no)");
                                                 String respuesta = SC.nextLine();
-                                                if (respuesta.equalsIgnoreCase("S")) {
-                                                    System.out.println("Introduce el nuevo nombre del proyecto 3: ");
-                                                    nombre3 = SC.nextLine();
-                                                    System.out.println("Introduce la nueva descripción del proyecto 3: ");
-                                                    descripcion3 = SC.nextLine();
-                                                    System.out.println("Introduce la nueva categoria del proyecto 3: ");
-                                                    categoria3 = SC.nextLine();
-                                                    System.out.println("Introduce la nueva cantidad necesaria del proyecto 3: ");
-                                                    cantidadNec3 = SC.nextDouble();
-                                                    System.out.println("Introduce la nueva cantidad financiada del proyecto 3: ");
-                                                    cantidadFinanc3 = SC.nextDouble();
-                                                    System.out.println("Introduce la nueva fecha de inicio del proyecto 3: ");
-                                                    fechaInicio3 = SC.nextLine();
-                                                    System.out.println("Introduce la nueva fecha fin del proyecto 3: ");
-                                                    fechaFin3 = SC.nextLine();
+                                                if (respuesta.equalsIgnoreCase("Si")) {
+                                                    System.out.println("Cuanto deseas invertir");
+                                                    double cantidad1 = SC.nextDouble();
+                                                    if (cantidad1 <= saldoCartera1 && cantidad1 + cantidadFinanc3 <= cantidadNec3) {
+                                                        saldoCartera1 -= cantidad1;
+                                                        cantidadFinanc3 += cantidad1;
+                                                        cantidadInvertida3 += cantidad1;
+                                                        System.out.println("Inversión realizada");
+                                                    } else {
+                                                        System.out.println("No tienes suficiente saldo o el proyecto ya esta financidado");
+                                                    }
                                                 }
                                             }
                                         }
                                         break;
                                     case 3:
                                         System.out.println("===CARTERA DIGITAL===");
+                                        boolean salirCartera = false;
+
+                                        while (!salirCartera){
+                                            System.out.println("1. Ver saldo");
+                                            System.out.println("2. Añadir saldo");
+                                            System.out.println("3. Salir");
+
+                                            int opcionCD = SC.nextInt();
+                                            SC.nextLine();
+
+                                            switch (opcionCD){
+                                                case 1:
+                                                    System.out.println("Saldo actual: " + saldoCartera2);
+                                                    System.out.println();
+                                                    break;
+                                                case 2:
+                                                    System.out.println("Introduce la cantidad de dinero que quieres introducir en la cartera digital: ");
+                                                    double cantidadDinero2 = SC.nextDouble();
+
+
+                                                    if (cantidadDinero2 > 0){
+                                                        saldoCartera2 += cantidadDinero2;
+                                                        System.out.println("Has añadido " + cantidadDinero2 + "a tu cartera digital.");
+                                                        System.out.println("Tu nuevo saldo es de: " + saldoCartera2);
+                                                    }else{
+                                                        System.out.println("Debes de introducir un valor mayor que 0.");
+                                                    }
+                                                    break;
+
+                                                case 3:
+                                                    salirCartera = true;
+                                                    System.out.println("Volviendo al menú principal...");
+                                                    break;
+
+                                                default:
+                                                    System.out.println("Opción no válida. ");
+                                                    break;
+                                            }
+                                        }
                                         break;
                                     case 4:
                                         System.out.println("===INVITA A TUS AMIGOS===");
