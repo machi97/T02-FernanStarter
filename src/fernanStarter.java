@@ -4,7 +4,7 @@ public class fernanStarter {
     public static void main(String[] args) {
         Scanner SC = new Scanner(System.in);
 
-        String usuarioAdmin = "Administrador", contraAdmin = "admin123";
+        String usuarioAdmin = "administrador", contraAdmin = "admin123";
         String usuarioGestor = "gestor", contraGestor = "gestor123";
         String usuarioInversor1 = "inversor1", contraInversor1 = "inversor123";
         String usuarioInversor2 = "inversor2", contraInversor2 = "inversor321";
