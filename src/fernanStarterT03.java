@@ -40,9 +40,6 @@ public class fernanStarterT03 {
                             salirAdmin = true;
                             System.out.println("Cerrando sesión...");
                             break;
-                        default:
-                            System.out.println("Opción no válida");
-                            break;
                     }
                 }
             } else if (usuario.equals(usuarioGestor)) {
@@ -60,7 +57,11 @@ public class fernanStarterT03 {
 
                                 switch (opcionGestor) {
                                     case 1:
+                                        creacionProyecto();
+                                        break;
                                     case 2:
+                                        dirigirProyecto();
+                                        break;
                                     case 3:
                                         eliminarProyecto();
                                         break;
@@ -82,6 +83,7 @@ public class fernanStarterT03 {
                             if (intentosGestor == 3) {
                                 gestorBloqueado = true;
                                 System.out.println("Has superado el limite de intentos. La cuenta está bloqueada");
+
                             }
                         }
                     }
@@ -95,17 +97,23 @@ public class fernanStarterT03 {
                             menuInversor1();
                             int opcionInversor1 = SC.nextInt();
                             SC.nextLine();
-
                             switch (opcionInversor1) {
                                 case 1:
+                                    misInversiones1();
+                                    break;
                                 case 2:
+                                    verProyectosInv1();
+                                    break;
                                 case 3:
-                                    eliminarProyecto();
+                                    carteraDigital1();
                                     break;
                                 case 4:
-                                    inversor1Configuracion();
+                                    invitaAmigoInv1();
                                     break;
                                 case 5:
+                                    inversor1Configuracion();
+                                    break;
+                                case 6:
                                     salirinversor1 = true;
                                     System.out.println("Cerrando sesión...");
                                     break;
@@ -133,16 +141,23 @@ public class fernanStarterT03 {
                             menuInversor2();
                             int opcionInversor2 = SC.nextInt();
                             SC.nextLine();
-
                             switch (opcionInversor2) {
                                 case 1:
+                                    misInversiones2();
+                                    break;
                                 case 2:
+                                    verProyectosInv2();
+                                    break;
                                 case 3:
-
+                                    carteraDigital2();
+                                    break;
                                 case 4:
-                                    inversor2Configuracion();
+                                    invitaAmigoInve2();
                                     break;
                                 case 5:
+                                    inversor2Configuracion();
+                                    break;
+                                case 6:
                                     salirInversor2 = true;
                                     System.out.println("Cerrando sesión...");
                                     break;

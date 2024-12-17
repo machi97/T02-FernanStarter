@@ -398,12 +398,11 @@ public class fernanStarter {
 
                                             }
                                             numProyectos++;
-                                            System.out.println("Poyecto creado con éxito");
 
-                                            System.out.println("Detalles de las recompensas: ");
+                                            System.out.println("Poyecto creado con éxito");
                                             if (numProyectos == 1){
                                                 System.out.println(proyecto1);
-                                                System.out.println("Recompensas");
+                                                System.out.println("Recompensas:");
                                                 if (!recompensa1P1.equals("")){
                                                     System.out.println("Recompensa 1: " + recompensa1P1 + "Descripción " + recompensaDesc1P1 + "Precio " + precioRecompensa1P1);
                                                 }
@@ -1021,7 +1020,7 @@ public class fernanStarter {
                                                 if (respuesta.equalsIgnoreCase("Si")) {
                                                     System.out.println("Cuanto deseas invertir");
                                                     double cantidad2 = SC.nextDouble();
-                                                    if (cantidad2 <= saldoCartera1 && cantidad2 + cantidadFinanc1 <= cantidadNec1) {
+                                                    if (cantidad2 <= saldoCartera2 && cantidad2 + cantidadFinanc1 <= cantidadNec1) {
                                                         saldoCartera2 -= cantidad2;
                                                         cantidadFinanc1 += cantidad2;
                                                         cantidadInvertida1 += cantidad2;
