@@ -81,6 +81,7 @@ public class utilidades {
                 break;
         }
     }
+
     /**
      * Muestra el bloqueo y desbloqueo del gestor.
      */
@@ -420,17 +421,17 @@ public class utilidades {
                 System.out.println(proyecto1);
                 System.out.println("Recompensas: ");
                 if (!recompensa1P1.equals("")){
-                    System.out.println("Recompensa 1: " + recompensa1P1 + "Descripción " + recompensaDesc1P1 + "Precio " + precioRecompensa1P1);
+                    System.out.println("Recompensa 1: " + recompensa1P1 + ",Descripción " + recompensaDesc1P1 + ",Precio " + precioRecompensa1P1);
                 }
                 if (!recompensa2P1.equals("")){
-                    System.out.println("Recompensa 2: " + recompensa2P1 + "Descripción " + recompensaDesc2P1 + "Precio " + precioRecompensa2P1);
+                    System.out.println("Recompensa 2: " + recompensa2P1 + ",Descripción " + recompensaDesc2P1 + ",Precio " + precioRecompensa2P1);
                 }
                 if (!recompensa3P1.equals("")){
-                    System.out.println("Recompensa 3: " + recompensa3P1 + "Descripción " + recompensaDesc3P1 + "Precio " + precioRecompensa3P1);
+                    System.out.println("Recompensa 3: " + recompensa3P1 + ",Descripción " + recompensaDesc3P1 + ",Precio " + precioRecompensa3P1);
                 }
             }else if (numProyectos == 2){
                 System.out.println(proyecto2);
-                System.out.println("Recompensas");
+                System.out.println("Recompensas:");
                 if (!recompensa1P2.equals("")){
                     System.out.println("Recompensa 1: " + recompensa1P2 + "Descripción " + recompensaDesc1P2 + "Precio " + precioRecompensa1P2);
                 }
