@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-import static biblioteca.utilidades.*;
+import static bibliotecaT03.utilidades.*;
 
 
 public class fernanStarterT03 {
