@@ -57,6 +57,9 @@ public class fernanStarterT04 {
 
     static int inicioUsuario = -1;
 
+    /**
+     * Muestra el inicio sesion.
+     */
     public static void inicioSesion() {
         System.out.print("Usuario: ");
         String usuario = sc.nextLine();
@@ -105,6 +108,9 @@ public class fernanStarterT04 {
         }
     }
 
+    /**
+     * Muestra el registro de usuarios para poder iniciar sesion.
+     */
     public static void registrarUsario() {
         System.out.print("Nombre de usuario: ");
         String nuevoUsuario = sc.nextLine();
@@ -163,33 +169,40 @@ public class fernanStarterT04 {
         }
     }
 
+    /**
+     * Muestra los usuarios que ya estan creados.
+     */
     public static void crearUsuario() {
         usuarios[0] = "administrador";
-        contrasenas[0] = "admin123";
+        contrasenas[0] = "Admin123,";
         tipoUsuarios[0] = "Administrador";
         bloqueoUsuarios[0] = false;
 
         usuarios[1] = "gestor";
-        contrasenas[1] = "gestor123";
+        contrasenas[1] = "Gestor123,";
         tipoUsuarios[1] = "Gestor";
         bloqueoUsuarios[1] = false;
 
         bloqueoUsuarios[2] = false;
         usuarios[2] = "inversor";
-        contrasenas[2] = "inversor123";
+        contrasenas[2] = "Inversor123,";
         tipoUsuarios[2] = "Inversor";
 
         cantidadUsarios = 3;
     }
 
-
+    /**
+     * Muestra el menu administrador. Tiene como opciones bloquear/desbloqeuar usuarios,
+     * cambiar usuario/contraseña, modificar o eliminar usuarios, etc...
+     */
     public static void menuAdministrador() {
         while (true){
             System.out.println("\n=== MENÚ ADMINISTRADOR ===");
             System.out.println("1. Panel de control");
             System.out.println("2. Proyectos");
-            System.out.println("3. Configuración");
-            System.out.println("4. Cerrar sesión");
+            System.out.println("3. Eliminar Proyectos");
+            System.out.println("4. Configuración");
+            System.out.println("5. Cerrar sesión");
             System.out.print("Elige una opción: ");
             int opcionAdmin = sc.nextInt();
             sc.nextLine();
@@ -202,17 +215,20 @@ public class fernanStarterT04 {
                     dirigirProyecto();
                     break;
                 case 3:
-                    usuariosConfiguracion();
+                    eliminarProyecto();
                     break;
                 case 4:
+                    usuariosConfiguracion();
+                    break;
+                case 5:
                     System.out.println("Cerrando sesión...");
                     return;
             }
         }
     }
-
-
-
+    /**
+     * Bloqueo o desbloqueo de usuarios.
+     */
     public static void panelControlUsuarios(){
         System.out.println("===PANEL DE CONTROL===");
         System.out.println("1. Bloquear o desbloquear Usuarios. ");
@@ -246,13 +262,16 @@ public class fernanStarterT04 {
         sc.nextLine();
 
         if (seleccion >= 1 && seleccion <= cantidadUsarios){
-            int indexUsuario = seleccion - 1;
-            bloqueoUsuarios[indexUsuario] = !bloqueoUsuarios[indexUsuario];
-            System.out.println("El usuario" + usuarios[indexUsuario] + " ha sido " +
-                    (bloqueoUsuarios[indexUsuario] ? "bloqueado" : "desbloqueado"));
+            int inicioUsuario = seleccion - 1;
+            bloqueoUsuarios[inicioUsuario] = !bloqueoUsuarios[inicioUsuario];
+            System.out.println("El usuario" + usuarios[inicioUsuario] + " ha sido " +
+                    (bloqueoUsuarios[inicioUsuario] ? "bloqueado" : "desbloqueado"));
         }
     }
 
+    /**
+     * Muestra los proyectos en detalle y la opcion de poder modificarlo.
+     */
     public static void dirigirProyecto(){
 
         System.out.println("===PROYECTOS===");
@@ -272,6 +291,9 @@ public class fernanStarterT04 {
         }
     }
 
+    /**
+     * Detalle del proyecto.
+     */
     public static void mostrarProyecto(){
         if (cantidadProyectos == 0) {
             System.out.println("No hay proyectos creados. ");
@@ -288,6 +310,9 @@ public class fernanStarterT04 {
         }
     }
 
+    /**
+     * Detalle del proyecto y pregunta si quiere modificar o no el proyecto. Funcion para menu administrador y menu gestor.
+     */
     public static void destalleModificaProyecto(int seleccion){
             System.out.println("===DETALLE DEL PROYECTO===");
             System.out.println("Nombre: " + nombresProyecto[seleccion]);
@@ -305,6 +330,9 @@ public class fernanStarterT04 {
         }
     }
 
+    /**
+     * Modificacion del proyecto. Funcion para menu administrador y menu gestor.
+     */
     public static void modificaProyecto(int seleccion){
         System.out.println("Introduce el nuevo nombre del proyecto: ");
         nombresProyecto[seleccion] = sc.nextLine();
@@ -326,8 +354,10 @@ public class fernanStarterT04 {
 
     }
 
-
-
+    /**
+     * Muestra el menu administrador. Tiene como opciones
+     * cambiar usuario/contraseña, crear, modificar o eliminar proyectos, etc...
+     */
     public static void menuGestor(){
         while (true){
             System.out.println("\n=== MENÚ GESTOR ===");
@@ -365,25 +395,44 @@ public class fernanStarterT04 {
     }
 
     /**
-     * Muestra la creacion de proyectos, hasta 3 proyectos maximo.
+     * Muestra la creacion de proyectos.
      */
     public static void creacionProyecto() {
         if (cantidadProyectos < 20) {
             System.out.println("Nombre del proyecto: ");
             nombresProyecto[cantidadProyectos] = sc.nextLine();
+            if (!textoMaxMin(nombresProyecto[cantidadProyectos], 5, 20)) {
+                System.out.println("El titulo del proyecto debe tener entre 5 y 20 caracteres.");
+                return;
+            }
+
             System.out.println("Descripcion del proyecto: ");
             descripcionProyectos[cantidadProyectos] = sc.nextLine();
+            if (!textoMaxMin(descripcionProyectos[cantidadProyectos], 5, 30)) {
+                System.out.println("La descripción del proyecto debe tener entre 5 y 30 caracteres.");
+                return;
+            }
+
             System.out.println("Categoría (arte, tecnología, cine, música, juegos, comida, moda…)");
             categoriaProyectos[cantidadProyectos] = sc.nextLine();
+            if (!textoMaxMin(categoriaProyectos[cantidadProyectos], 5, 30)) {
+                System.out.println("La categoria del proyecto debe tener entre 5 y 30 caracteres.");
+                return;
+            }
+
             System.out.println("Cantidad necesaria ");
             cantidadNecesarias[cantidadProyectos] = sc.nextDouble();
+
             System.out.println("Cantidad financiada hasta el momento");
             cantidadFinanciadas[cantidadProyectos] = sc.nextDouble();
             sc.nextLine();
+
             System.out.println("Fecha inicio de apertura para recibir inversiones ");
             fechaInicio[cantidadProyectos] = sc.nextLine();
+
             System.out.println("Fecha fin de cierre de las inversiones ");
             fechaFin[cantidadProyectos] = sc.nextLine();
+
 
             for (int i = 0; i < 3; i++) {
                 System.out.println("Introduce nombre de la recompensa #" + (i + 1) + ": ");
@@ -401,6 +450,9 @@ public class fernanStarterT04 {
         }
     }
 
+    /**
+     * Eliminacion de proyectos.
+     */
     public static void eliminarProyecto(){
         System.out.println("Introduce el numero de proyecto que deseas eliminar ( " + cantidadProyectos + " )");
         int eliminarProyecto = sc.nextInt();
@@ -425,14 +477,10 @@ public class fernanStarterT04 {
         }
     }
 
-
-
-
-
-
-
-
-
+    /**
+     * Muestra el menu inversor. Tiene como opciones la cartera dogital,
+     * cambiar usuario/contraseña, invertir en proyectos, etc...
+     */
     public static void menuInversor(){
         while (true){
             System.out.println("\n=== MENÚ INVERSOR ===");
@@ -472,15 +520,18 @@ public class fernanStarterT04 {
         }
     }
 
-    public static void misInversiones(int indexUsuario){
+    /**
+     * Muestra la inversiones que has hecho.
+     */
+    public static void misInversiones(int inicioUsuario){
         System.out.println("===MIS INVERSIONES===");
         boolean tieneInversiones = false;
         for (int i = 0; i < cantidadProyectos; i++) {
-            if (inversiones[i][indexUsuario] != null){
+            if (inversiones[i][inicioUsuario] != null){
                 tieneInversiones = true;
                 System.out.println("Proyecto: " + nombresProyecto[i]);
                 System.out.println("Categoría:  " + categoriaProyectos[i]);
-                System.out.println("Cantidad Invertida " + inversiones[i][indexUsuario]);
+                System.out.println("Cantidad Invertida " + inversiones[i][inicioUsuario]);
                 System.out.println("====================================");
             }
         }
@@ -496,19 +547,22 @@ public class fernanStarterT04 {
         }
     }
 
-    public static void detalleProyecto(int indexProyecto){
+    public static void detalleProyecto(int inicioProyecto){
         System.out.println("===DETALLE DEL PROYECTO===");
-        System.out.println("Nombre: " + nombresProyecto[indexProyecto]);
-        System.out.println("Descripción: " + descripcionProyectos[indexProyecto]);
-        System.out.println("Categoría: " + categoriaProyectos[indexProyecto]);
-        System.out.println("Cantidad necesaria: " + cantidadNecesarias[indexProyecto]);
-        System.out.println("Cantidad financiada: " + cantidadFinanciadas[indexProyecto]);
-        System.out.println("Fecha inicio: " + fechaInicio[indexProyecto]);
-        System.out.println("Fecha fin: " + fechaFin[indexProyecto]);
+        System.out.println("Nombre: " + nombresProyecto[inicioProyecto]);
+        System.out.println("Descripción: " + descripcionProyectos[inicioProyecto]);
+        System.out.println("Categoría: " + categoriaProyectos[inicioProyecto]);
+        System.out.println("Cantidad necesaria: " + cantidadNecesarias[inicioProyecto]);
+        System.out.println("Cantidad financiada: " + cantidadFinanciadas[inicioProyecto]);
+        System.out.println("Fecha inicio: " + fechaInicio[inicioProyecto]);
+        System.out.println("Fecha fin: " + fechaFin[inicioProyecto]);
         System.out.println("==================================");
     }
 
-    public static void verProyectos(int indexProyecto){
+    /**
+     * Opcion para poder invertir en un proyecto.
+     */
+    public static void verProyectos(int inicioProyecto){
         System.out.println("===DETALLE DEL PROYECTO===");
         for (int i = 0; i < cantidadProyectos; i++) {
             System.out.println("Nombre: " + nombresProyecto[i]);
@@ -532,10 +586,10 @@ public class fernanStarterT04 {
                 System.out.println("Cuanto deseas invertir");
                 double cantidadInversion = sc.nextDouble();
                 if (cantidadInversion > 0 && cantidadInversion <= saldoUsuarios[inicioUsuario]) {
-                    inversiones[indexProyecto][inicioUsuario] = String.valueOf(cantidadInversion);
+                    inversiones[inicioProyecto][inicioUsuario] = String.valueOf(cantidadInversion);
                     saldoUsuarios[inicioUsuario] -= cantidadInversion;
-                    cantidadFinanciadas[indexProyecto] += cantidadInversion;
-                    System.out.println("Inversión realizada. Has invertido " + cantidadInversion + " en el proyecto: " + nombresProyecto[indexProyecto]);
+                    cantidadFinanciadas[inicioProyecto] += cantidadInversion;
+                    System.out.println("Inversión realizada. Has invertido " + cantidadInversion + " en el proyecto: " + nombresProyecto[inicioProyecto]);
                 } else {
                     System.out.println("No tienes suficiente saldo o el proyecto ya esta financidado");
                 }
@@ -545,7 +599,10 @@ public class fernanStarterT04 {
         }
     }
 
-    public static void carteraDigital(int indexUsuario){
+    /**
+     * Cartera digital, para saber el saldo que tenemos y para introducir mas saldo.
+     */
+    public static void carteraDigital(int inicioUsuario){
         System.out.println("===CARTERA DIGITAL===");
         boolean salirCartera = false;
 
@@ -559,7 +616,7 @@ public class fernanStarterT04 {
 
             switch (opcionCD){
                 case 1:
-                    System.out.println("Saldo actual: " + saldoUsuarios[indexUsuario]);
+                    System.out.println("Saldo actual: " + saldoUsuarios[inicioUsuario]);
                     System.out.println();
                     break;
                 case 2:
@@ -568,9 +625,9 @@ public class fernanStarterT04 {
 
 
                     if (cantidadDinero > 0){
-                        saldoUsuarios[indexUsuario] += cantidadDinero;
+                        saldoUsuarios[inicioUsuario] += cantidadDinero;
                         System.out.println("Has añadido " + cantidadDinero + "a tu cartera digital.");
-                        System.out.println("Tu nuevo saldo es de: " + saldoUsuarios[indexUsuario]);
+                        System.out.println("Tu nuevo saldo es de: " + saldoUsuarios[inicioUsuario]);
                     }else{
                         System.out.println("Debes de introducir un valor mayor que 0.");
                     }
@@ -588,24 +645,26 @@ public class fernanStarterT04 {
         }
     }
 
-
-    public static void invitaAmigo(int indexUsuario){
+    /**
+     * Invitacion de amigos al proyecto.
+     */
+    public static void invitaAmigo(int inicioUsuario){
         System.out.println("===INVITA A TUS AMIGOS===");
         System.out.println("Lista de amigos: ");
-        if (numAmigos[indexUsuario] == 0){
+        if (numAmigos[inicioUsuario] == 0){
             System.out.println("No tienes ningún amigo añadido");
         }else{
-            for (int i = 0; i < numAmigos[indexUsuario]; i++) {
-                System.out.println(amigosUsuarios[indexUsuario][i]);
+            for (int i = 0; i < numAmigos[inicioUsuario]; i++) {
+                System.out.println(amigosUsuarios[inicioUsuario][i]);
             }
         }
         System.out.println("Introduce el correo electrónico de un amigo para añadirlo a la lista de amigos: ");
         String nuevoAmigo = sc.nextLine();
 
-        if (numAmigos[indexUsuario] < amigosUsuarios[indexUsuario].length) {
+        if (numAmigos[inicioUsuario] < amigosUsuarios[inicioUsuario].length) {
             boolean yaEsAmigo = false;
-            for (int i = 0; i < numAmigos[indexUsuario]; i++) {
-                if (amigosUsuarios[indexUsuario][i].equals(nuevoAmigo)) {
+            for (int i = 0; i < numAmigos[inicioUsuario]; i++) {
+                if (amigosUsuarios[inicioUsuario][i].equals(nuevoAmigo)) {
                     yaEsAmigo = true;
                     break;
                 }
@@ -613,8 +672,8 @@ public class fernanStarterT04 {
             if (yaEsAmigo){
                 System.out.println("Este correo ya está en tu lista de amigos. ");
             }else{
-                amigosUsuarios[indexUsuario][numAmigos[indexUsuario]] = nuevoAmigo;
-                numAmigos[indexUsuario]++;
+                amigosUsuarios[inicioUsuario][numAmigos[inicioUsuario]] = nuevoAmigo;
+                numAmigos[inicioUsuario]++;
                 System.out.println("Amigo añadido.");
             }
         }else{
@@ -622,8 +681,9 @@ public class fernanStarterT04 {
         }
     }
 
-
-
+    /**
+     * Muestra la configuracion de cambo de usuario o contraseña. Esta funcion sirve para todos los menus.
+     */
     public static void usuariosConfiguracion(){
         System.out.println("===CONFIGURACIÓN===");
         System.out.println("1. Cambiar el nombre de usuario. ");

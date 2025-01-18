@@ -1,10 +1,16 @@
 package utilidades;
 
 public class funcionesCadenas {
+    /**
+     * Muestra la repticion de la contraseña para comprobarla.
+     */
     public static boolean contrasenaIguales(String contrasena1, String contrasena2){
         return contrasena1.equals(contrasena2);
     }
 
+    /**
+     * Muestra que la contraseña sea suficientemente fuerte con minimo 8 caracteres, con simbolos mayusculas, etc...
+     */
     public static boolean esContrasenaFuerte(String contrasena){
         if (contrasena.length() < 8){
             return false;
@@ -29,12 +35,12 @@ public class funcionesCadenas {
         return "-_.,*+@".indexOf(c) >= 0;
     }
 
-    public static boolean esContrasenaValida(String texto, int min, int max){
+    /**
+     * Muestra el minimo y el maximo de caracteres del proyecto como el titulo, descripcion, etc...
+     */
+    public static boolean textoMaxMin(String texto, int min, int max){
         int longitud = texto.length();
         return longitud >= min && longitud <= max;
     }
 
-    public static boolean esFormatoValido(String texto, String simbolo){
-        return texto.contains(simbolo);
-    }
 }

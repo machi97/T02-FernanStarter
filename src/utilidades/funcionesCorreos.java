@@ -42,13 +42,4 @@ public class funcionesCorreos {
             me.printStackTrace();
         }
     }
-
-    public static void main(String[] args) {
-        String destinatario = "paablo.quesada@gmail.";
-        String asunto = "Código de verificación";
-        String cuerpo = "<h1>Automáticamente se ha solicitado un código de verificación a este gmail.</h1>" +
-                "<p>Código:1234</p>";
-        enviarConGMail(destinatario, asunto, cuerpo);
-    }
-
 }
